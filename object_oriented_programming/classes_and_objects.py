@@ -31,6 +31,7 @@ class Employee(Person):
         super().__init__(name, age)
         self.job_title = job_title
 
+    # Instance methods
     def greet(self):
         return super().greet()
 
@@ -45,14 +46,14 @@ person_2 = Person("Beta", "25")
 print("Name: {}\nAge: {}".format(person_2.name, person_2.age))
 print(person_2.greet())
 
-# Object counter
+# Object counter call
 print("Object counter: {}".format(Person.object_counter))
 
-# Class method
+# Class method call
 anonymous = Person.create_anonymous()
 print("Anonymous name: {}".format(anonymous.name))
 
-# Static method
+# Static method call
 print(Person.display_name("Tango"))
 
 # Single inheritance
