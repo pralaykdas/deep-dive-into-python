@@ -2,7 +2,7 @@
 
 import sys
 
-class SampleException:
+class ExceptionHandling:
     # Class attributes
     num_list = [1, 2, 3, 4, 5]
 
@@ -56,13 +56,13 @@ class SampleException:
 
 
 # Object 1
-obj_1 = SampleException(1, "a")
+obj_1 = ExceptionHandling(1, "a")
 # Check Type error
 obj_1.type_error_exception()
 # Check Index error
 obj_1.index_error_exception()
 # Object 2
-obj_2 = SampleException(1, 0)
+obj_2 = ExceptionHandling(1, 0)
 # Check Zero Division error
 obj_2.zero_division_error_exception()
 # Check Base error
