@@ -1,10 +1,11 @@
 # Liskov-Substitution Principle (LSP)
-"""
 
-"" Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program. ""
+"""
+“Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.”
 
 # The principle states that a child class must be substitutable for its parent class.
-# The purpose is to ensure that the child class can assume the place of its parent class without causing any errors.
+# Purpose:
+#     * Ensure that a child class can assume the place of its parent class without causing any errors.
 """
 
 
@@ -32,12 +33,13 @@ If some client code expects Pizza.calculate_price() to behave a certain way, rep
 
 SpecialPizza might need more data (special_instructions) to work properly, but the base class Pizza knows nothing about this requirement.
 
-Why This Violates LSP
+
+Why this violates LSP?
 Substituting Pizza with SpecialPizza breaks expectations because:
 
-The method interface and internal logic no longer align perfectly.
+-> The method interface and internal logic no longer align perfectly.
 
-The subclass relies on behaviors or data not present in the superclass.
+-> The subclass relies on behaviors or data not present in the superclass.
 
 This weakens the inheritance contract.
 """
@@ -69,10 +71,10 @@ class SpecialPizza(FoodItem):
         pass
 
 """
-How This Fixes the Problem
-Common interface: Both Pizza and SpecialPizza implement FoodItem. They are no longer in a parent-child relationship, but siblings with a shared contract.
+How this fixes the problem?
+-> Common interface: Both Pizza and SpecialPizza implement FoodItem. They are no longer in a parent-child relationship, but siblings with a shared contract.
 
-Independent behavior: Each class implements its own calculate_price() logic without having to conform to the constraints of the other.
+-> Independent behavior: Each class implements its own calculate_price() logic without having to conform to the constraints of the other.
 
-LSP compliant: Wherever a FoodItem is expected, either Pizza or SpecialPizza can be used without breaking the code’s logic.
+-> LSP compliant: Wherever a FoodItem is expected, either Pizza or SpecialPizza can be used without breaking the code’s logic.
 """
