@@ -36,16 +36,12 @@ class FileManager:
 """
 Why it violates SRP?
 The class has multiple responsibilities:
-
--> File reading/writing
-
--> File compression/decompression
+   * File reading/writing
+   * File compression/decompression
 
 So it has multiple reasons to change:
-
--> If compression needs change (e.g. switch to .tar.gz)
-
--> If read/write behavior changes (e.g. encoding, logging)
+   * If compression needs change (e.g. switch to .tar.gz)
+   * If read/write behavior changes (e.g. encoding, logging)
 
 This makes the class hard to maintain and test.
 """
@@ -79,9 +75,9 @@ class ZipFileManager:
 
 """
 How it follows SRP?
--> FileManager is only responsible for file content management.
+   * FileManager is only responsible for file content management.
 
--> ZipFileManager is only responsible for file compression.
+   * ZipFileManager is only responsible for file compression.
 
 Now, each class has one reason to change, and you can evolve or test each independently.
 """
