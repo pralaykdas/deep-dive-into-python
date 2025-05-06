@@ -1,7 +1,11 @@
-# Single-Responsibility Principle
-# The principle states that every class, function, and method should have only one job or one reason to change
-# The purpose is to create highly cohesive and robust classes, methods, and functions, promotes class composition, and avoid code duplication
+# Single-Responsibility Principle (SRP)
 
+"""
+"" A class should have only one reason to change. ""
+
+# The principle states that every class, function, and method should have only one job or one reason to change.
+# The purpose is to create highly cohesive and robust classes, methods, and functions, promotes class composition, and avoid code duplication.
+"""
 
 
 # Problem
@@ -26,6 +30,22 @@ class FileManager:
         with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
             archive.extractall()
 
+"""
+Why It Violates SRP?
+The class has multiple responsibilities:
+
+-> File reading/writing
+
+-> File compression/decompression
+
+So it has multiple reasons to change:
+
+-> If compression needs change (e.g. switch to .tar.gz)
+
+-> If read/write behavior changes (e.g. encoding, logging)
+
+This makes the class hard to maintain and test.
+"""
 
 
 # Solution
@@ -53,3 +73,12 @@ class ZipFileManager:
     def decompress(self):
         with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
             archive.extractall()
+
+"""
+How It Follows SRP?
+-> FileManager is only responsible for file content management.
+
+-> ZipFileManager is only responsible for file compression.
+
+Now, each class has one reason to change, and you can evolve or test each independently.
+"""
