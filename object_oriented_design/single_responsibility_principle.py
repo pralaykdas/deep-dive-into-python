@@ -1,10 +1,13 @@
 # Single-Responsibility Principle (SRP)
 
 """
-"" A class should have only one reason to change. ""
+“A class should have only one reason to change.”
 
 # The principle states that every class, function, and method should have only one job or one reason to change.
-# The purpose is to create highly cohesive and robust classes, methods, and functions, promotes class composition, and avoid code duplication.
+# Purpose:
+    * Create highly cohesive and robust classes, methods, and functions
+    * Promote class composition
+    * Avoid code duplication
 """
 
 
@@ -31,7 +34,7 @@ class FileManager:
             archive.extractall()
 
 """
-Why It Violates SRP?
+Why it violates SRP?
 The class has multiple responsibilities:
 
 -> File reading/writing
@@ -75,7 +78,7 @@ class ZipFileManager:
             archive.extractall()
 
 """
-How It Follows SRP?
+How it follows SRP?
 -> FileManager is only responsible for file content management.
 
 -> ZipFileManager is only responsible for file compression.
